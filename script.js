@@ -6,10 +6,18 @@ const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 console.log(ctx);
 
-//prevent distortion of canvas when resizing window
+//prevent stretching of drawn items when resizing window
 canvas.addEventListener("resize", () => {
   canvas.width = windows.innerWidth;
   canvas.height = window.innerHeight;
-  ctx.fillStyle = "white";
-  ctx.fillRect(10, 10, 50, 150);
 });
+
+//Drawing circle with .arc()
+ctx.fillStyle = "green";
+ctx.strokeStyle = "red";
+ctx.lineWidth = 5;
+//Need to tell js where to start when draing arcs/circles
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI * 2);
+ctx.stroke();
+ctx.fill();
